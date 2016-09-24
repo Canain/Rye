@@ -8,6 +8,6 @@ export interface AddProps {
 
 export default class Add extends Component<AddProps, {}> {
 	render() {
-		return <Modal onBack={this.props.onBack} title={Localization.add}></Modal>;
+		return <Modal onBack={this.props.onBack} title={Localization.add} onDone={() => {}}></Modal>;
 	}
 }

@@ -136,3 +136,7 @@ export const modalTopAction: ViewStyle = {
 	justifyContent: 'center',
 	alignItems: 'center'
 };
+
+export const modalTopActionText: TextStyle = {
+	fontSize: 12
+};

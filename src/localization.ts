@@ -11,6 +11,7 @@ export interface Language {
 	lendMore: string;
 	back: string;
 	add: string;
+	done: string;
 }
 
 interface Languages {

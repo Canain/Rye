@@ -6,6 +6,7 @@ import Button from '../components/button';
 
 export interface ModalProps {
 	onBack: () => void;
+	onDone: () => void;
 	title: string;
 }
 
@@ -15,9 +16,9 @@ export default class Modal extends Component<ModalProps, {}> {
 			<View style={Styles.modal}>
 				<View style={Styles.modalTop}>
 					<View style={Styles.modalTopContent}>
-						<Button style={Styles.modalTopAction} onClick={this.props.onBack}>{Localization.back}</Button>
+						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onBack}>{Localization.back}</Button>
 						<Text>{this.props.title}</Text>
-						<Button style={Styles.modalTopAction}/>
+						<Button style={Styles.modalTopAction} onClick={this.props.onDone}>{Localization.done}</Button>
 					</View>
 				</View>
 				<View style={Styles.content}>{this.props.children}</View>

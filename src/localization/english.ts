@@ -10,5 +10,6 @@ export default <Language>{
 	lendExplain: 'You have lent',
 	lendMore: 'Lend More',
 	back: 'Back',
-	add: 'Enter lend amount'
+	add: 'Enter lend amount',
+	done: 'Done'
 };
