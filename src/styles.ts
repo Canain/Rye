@@ -140,3 +140,23 @@ export const modalTopAction: ViewStyle = {
 export const modalTopActionText: TextStyle = {
 	fontSize: 12
 };
+
+export const add: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column'
+};
+
+export const addAmount: TextStyle = {
+	fontSize: 48
+};
+
+export const addTop: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column',
+	alignItems: 'center',
+	justifyContent: 'center'
+};
+
+export const addBot: ViewStyle = {
+	flex: 1
+};

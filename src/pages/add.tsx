@@ -1,13 +1,39 @@
 import Component, { React } from '../component';
+import { View, Text } from 'react-native';
 import Modal from '../components/modal';
 import Localization from '../localization';
+import * as numeral from 'numeral';
+import * as Styles from '../styles';
 
 export interface AddProps {
 	onBack: () => void;
 }
 
-export default class Add extends Component<AddProps, {}> {
+export interface AddState {
+	amount?: number;
+}
+
+export default class Add extends Component<AddProps, AddState> {
+	constructor() {
+		super();
+		
+		this.state = {
+			amount: 0
+		};
+	}
+	
 	render() {
-		return <Modal onBack={this.props.onBack} title={Localization.add} onDone={() => {}}></Modal>;
+		return (
+			<Modal onBack={this.props.onBack} title={Localization.add} onDone={() => {}}>
+				<View style={Styles.add}>
+					<View style={Styles.addTop}>
+						<Text style={Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>
+					</View>
+					<View style={Styles.addBot}>
+						
+					</View>
+				</View>
+			</Modal>
+		);
 	}
 }
