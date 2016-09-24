@@ -1,0 +1,33 @@
+{
+  "name": "rye",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm i react-native-cli@1.0.0 && typings i",
+    "prod": "webpack -p --config webpack.prod.js",
+    "watch": "webpack -w",
+    "dev": "node node_modules/react-native/local-cli/cli.js start",
+    "log:ios": "react-native log-ios",
+    "log:android": "react-native log-android",
+    "run:ios": "react-native run-ios",
+    "run:android": "react-native run-android",
+    "start:ios": "concurrently --raw \"npm run watch\" \"npm run dev\" \"npm run run:ios\" \"npm run log:ios\"",
+    "start:android": "concurrently --raw \"npm run watch\" \"npm run dev\" \"npm run run:android\" \"npm run log:android\"",
+    "start": "npm run start:ios"
+  },
+  "dependencies": {
+    "react": "15.3.2",
+    "react-native": "0.34.0",
+    "shallowequal": "^0.2.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "concurrently": "^2.2.0",
+    "json-loader": "^0.5.4",
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.0.3",
+    "typings": "^1.3.3",
+    "webpack": "2.1.0-beta.21"
+  }
+}
