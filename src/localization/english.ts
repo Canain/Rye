@@ -6,5 +6,7 @@ export default <Language>{
 	settings: 'Settings',
 	email: 'Email',
 	password: 'Password',
-	login: 'Login'
+	login: 'Login',
+	lendExplain: 'You have lended',
+	lendMore: 'Lend More'
 };

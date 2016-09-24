@@ -7,6 +7,8 @@ export interface Language {
 	email: string;
 	password: string;
 	login: string;
+	lendExplain: string;
+	lendMore: string;
 }
 
 interface Languages {

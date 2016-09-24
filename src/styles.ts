@@ -68,3 +68,51 @@ export const loginButtonText: TextStyle = {
 export const content: ViewStyle = {
 	flex: 1
 };
+
+export const lend: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column',
+	alignItems: 'stretch'
+};
+
+export const lendTop: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center'
+};
+
+export const lendExplain: TextStyle = {
+	
+};
+
+export const lendCurrent: TextStyle = {
+	fontSize: 48
+};
+
+export const lendDiffPositive: TextStyle = {
+	color: 'green'
+};
+
+export const lendDiffNegative: TextStyle = {
+	color: 'red'
+};
+
+export const lendBot: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column',
+	justifyContent: 'flex-end'
+};
+
+export const lendButton: ViewStyle = {
+	height: 64,
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	backgroundColor: loginButton.backgroundColor,
+	margin: 24
+};
+
+export const lendButtonText: TextStyle = {
+	color: loginButtonText.color
+};

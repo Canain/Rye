@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 import Localization from './localization';
 import * as Styles from './styles';
 import Tabs from './components/tabs';
-import Tab from './components/tab';
 import Login from './pages/login';
+import Lend from './pages/lend';
 
 export interface RyeState {
 	tab?: 'lend' | 'borrow' | 'settings';
@@ -37,7 +37,7 @@ export class Rye extends Component<{}, RyeState> {
 			<Tabs tabs={[
 				{
 					name: Localization.lend,
-					content: <View/>
+					content: <Lend/>
 				},
 				{
 					name: Localization.borrow,
