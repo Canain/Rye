@@ -8,5 +8,7 @@ export default <Language>{
 	password: 'Password',
 	login: 'Login',
 	lendExplain: 'You have lent',
-	lendMore: 'Lend More'
+	lendMore: 'Lend More',
+	back: 'Back',
+	add: 'Enter lend amount'
 };

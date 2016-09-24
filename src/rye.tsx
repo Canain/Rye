@@ -49,7 +49,7 @@ export class Rye extends Component<{}, RyeState> {
 					}
 				]}/>
 			),
-			add: <Add/>
+			add: <Add onBack={() => this.catch(this.update({page: 'main'}))}/>
 		}[this.state.page];
 	}
 }

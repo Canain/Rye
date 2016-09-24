@@ -10,8 +10,7 @@ export const center: ViewStyle = {
 export const main: ViewStyle = {
 	flex: 1,
 	marginTop: Platform.OS === 'ios' ? 20 : 0,
-	flexDirection: 'column',
-	justifyContent: 'space-between'
+	flexDirection: 'column'
 };
 
 export const fernButton: ViewStyle = {
@@ -104,4 +103,36 @@ export const lendDiffNegative: TextStyle = {
 export const lendButton: ViewStyle = {
 	height: 64,
 	margin: 24
+};
+
+export const modal: ViewStyle = mixin(main, <ViewStyle>{
+	marginTop: 0
+});
+
+export const modalTop: ViewStyle = {
+	height: 48 + main.marginTop,
+	shadowColor: 'black',
+  shadowRadius: 2,
+  shadowOpacity: 0.1,
+	shadowOffset: {
+		width: 0,
+		height: 1
+	},
+	flexDirection: 'column',
+	justifyContent: 'flex-end'
+};
+
+export const modalTopContent: ViewStyle = {
+	height: 48,
+	flexDirection: 'row',
+	justifyContent: 'space-between',
+	alignItems: 'center'
+};
+
+export const modalTopAction: ViewStyle = {
+	width: 64,
+	height: 48,
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center'
 };
