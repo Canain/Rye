@@ -15,7 +15,7 @@ export const main: ViewStyle = {
 };
 
 export const tabs: ViewStyle = {
-	height: 64,
+	height: 48,
 	flexDirection: 'row'
 };
 
@@ -23,10 +23,12 @@ export const tab: ViewStyle = {
 	flex: 1,
 	justifyContent: 'flex-end',
 	alignItems: 'center',
-	paddingBottom: 10
+	paddingBottom: 10,
+	marginBottom: 1
 };
 
 export const selectedTab = mixin(tab, <ViewStyle>{
 	borderBottomColor: 'black',
-	borderBottomWidth: 1
+	borderBottomWidth: tab.marginBottom,
+	marginBottom: 0
 });
