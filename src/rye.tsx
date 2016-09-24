@@ -33,15 +33,21 @@ export class Rye extends Component<{}, RyeState> {
 	
 	render() {
 		return (
-			this.state.login ?
-			<Login onLogin={this.attach(this.onLogin)}/> :
-			<View style={Styles.main}>
-				<Tabs>
-					<Tab selected={this.state.tab === 'lend'} onClick={() => this.catch(this.update({tab: 'lend'}))}>{Localization.lend}</Tab>
-					<Tab selected={this.state.tab === 'borrow'} onClick={() => this.catch(this.update({tab: 'borrow'}))}>{Localization.borrow}</Tab>
-					<Tab selected={this.state.tab === 'settings'} onClick={() => this.catch(this.update({tab: 'settings'}))}>{Localization.settings}</Tab>
-				</Tabs>
-			</View>
+			this.state.login ? <Login onLogin={this.attach(this.onLogin)}/> :
+			<Tabs tabs={[
+				{
+					name: Localization.lend,
+					content: <View/>
+				},
+				{
+					name: Localization.borrow,
+					content: <View/>
+				},
+				{
+					name: Localization.settings,
+					content: <View/>
+				}
+			]}/>
 		);
 	}
 }

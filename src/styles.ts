@@ -64,3 +64,7 @@ export const loginButton: ViewStyle = {
 export const loginButtonText: TextStyle = {
 	color: 'white'
 }
+
+export const content: ViewStyle = {
+	flex: 1
+};
