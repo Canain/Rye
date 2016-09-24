@@ -20,32 +20,60 @@ class KeyRow extends Component<{}, {}> {
 	}
 }
 
-export interface KeypadProps {
+export interface KeypadState {
+	amount?: number;
 }
 
-export default class Keypad extends Component<KeypadProps, {}> {
+export interface KeypadProps {
+	onChange: (amount: number) => void;
+}
+
+export default class Keypad extends Component<KeypadProps, KeypadState> {
+	constructor() {
+		super();
+		
+		this.state = {
+			amount: 0
+		};
+	}
+	
+	async onClickNumber(value: number) {
+		await this.update({
+			amount: parseInt(this.state.amount.toString() + value)
+		});
+		this.props.onChange(this.state.amount);
+	}
+	
+	async onDelete() {
+		const text = this.state.amount.toString();
+		await this.update({
+			amount: text.length > 1 ? parseInt(text.substr(0, text.length - 1)) : 0
+		});
+		this.props.onChange(this.state.amount);
+	}
+	
 	render() {
 		return (
 			<View style={Styles.keypad}>
 				<KeyRow>
-					<Key>1</Key>
-					<Key>2</Key>
-					<Key>3</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(1))}>1</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(2))}>2</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(3))}>3</Key>
 				</KeyRow>
 				<KeyRow>
-					<Key>4</Key>
-					<Key>5</Key>
-					<Key>6</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(4))}>4</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(5))}>5</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(6))}>6</Key>
 				</KeyRow>
 				<KeyRow>
-					<Key>7</Key>
-					<Key>8</Key>
-					<Key>9</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(7))}>7</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(8))}>8</Key>
+					<Key onClick={() => this.catch(this.onClickNumber(9))}>9</Key>
 				</KeyRow>
 				<KeyRow>
-					<Key>.</Key>
-					<Key>0</Key>
-					<Key><Icon name="backspace" size={24}/></Key>
+					<Key/>
+					<Key onClick={() => this.catch(this.onClickNumber(0))}>0</Key>
+					<Key onClick={this.attach(this.onDelete)}><Icon name="backspace" size={24}/></Key>
 				</KeyRow>
 			</View>
 		);

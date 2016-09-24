@@ -9,9 +9,7 @@ export interface Language {
 	login: string;
 	lendExplain: string;
 	lendMore: string;
-	back: string;
 	add: string;
-	done: string;
 }
 
 interface Languages {

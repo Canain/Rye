@@ -30,7 +30,7 @@ export default class Add extends Component<AddProps, AddState> {
 					<View style={Styles.addTop}>
 						<Text style={Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>
 					</View>
-					<View style={Styles.addBot}><Keypad/></View>
+					<View style={Styles.addBot}><Keypad onChange={amount => this.catch(this.update({amount: amount / 100}))}/></View>
 				</View>
 			</Modal>
 		);
