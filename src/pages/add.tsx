@@ -4,6 +4,7 @@ import Modal from '../components/modal';
 import Localization from '../localization';
 import * as numeral from 'numeral';
 import * as Styles from '../styles';
+import Keypad from '../components/keypad';
 
 export interface AddProps {
 	onBack: () => void;
@@ -29,9 +30,7 @@ export default class Add extends Component<AddProps, AddState> {
 					<View style={Styles.addTop}>
 						<Text style={Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>
 					</View>
-					<View style={Styles.addBot}>
-						
-					</View>
+					<View style={Styles.addBot}><Keypad/></View>
 				</View>
 			</Modal>
 		);

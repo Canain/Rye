@@ -141,6 +141,10 @@ export const modalTopActionText: TextStyle = {
 	fontSize: 12
 };
 
+export const modalTitle: TextStyle = {
+	fontSize: 16
+};
+
 export const add: ViewStyle = {
 	flex: 1,
 	flexDirection: 'column'
@@ -158,5 +162,27 @@ export const addTop: ViewStyle = {
 };
 
 export const addBot: ViewStyle = {
-	flex: 1
+	flex: 1,
+	marginBottom: 48
+};
+
+export const keypad: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column'
+};
+
+export const key: ViewStyle = {
+	flex: 1/3,
+	flexDirection: 'column',
+	alignItems: 'center',
+	justifyContent: 'center'
+};
+
+export const keyText: TextStyle = {
+	fontSize: 18
+};
+
+export const keyRow: ViewStyle = {
+	flex: 1/4,
+	flexDirection: 'row'
 };

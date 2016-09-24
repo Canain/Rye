@@ -17,7 +17,7 @@ export default class Modal extends Component<ModalProps, {}> {
 				<View style={Styles.modalTop}>
 					<View style={Styles.modalTopContent}>
 						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onBack}>{Localization.back}</Button>
-						<Text>{this.props.title}</Text>
+						<Text style={Styles.modalTitle}>{this.props.title}</Text>
 						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onDone}>{Localization.done}</Button>
 					</View>
 				</View>
