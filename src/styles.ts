@@ -14,6 +14,17 @@ export const main: ViewStyle = {
 	justifyContent: 'space-between'
 };
 
+export const fernButton: ViewStyle = {
+	backgroundColor: '#71BC78',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center'
+};
+
+export const fernButtonText: TextStyle = {
+	color: 'white'
+};
+
 export const tabs: ViewStyle = {
 	height: 48,
 	flexDirection: 'row'
@@ -53,17 +64,9 @@ export const textInput: TextStyle = {
 
 export const loginButton: ViewStyle = {
 	margin: 10,
-	backgroundColor: '#71BC78',
 	width: 256,
-	height: 48,
-	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center'
+	height: 48
 };
-
-export const loginButtonText: TextStyle = {
-	color: 'white'
-}
 
 export const content: ViewStyle = {
 	flex: 1
@@ -98,21 +101,7 @@ export const lendDiffNegative: TextStyle = {
 	color: 'red'
 };
 
-export const lendBot: ViewStyle = {
-	flex: 1,
-	flexDirection: 'column',
-	justifyContent: 'flex-end'
-};
-
 export const lendButton: ViewStyle = {
 	height: 64,
-	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center',
-	backgroundColor: loginButton.backgroundColor,
 	margin: 24
-};
-
-export const lendButtonText: TextStyle = {
-	color: loginButtonText.color
 };

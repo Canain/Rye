@@ -2,7 +2,7 @@ import Component, { React } from '../component';
 import { View, Text, TextInput, AsyncStorage } from 'react-native';
 import * as Styles from '../styles';
 import Localization from '../localization';
-import Button from '../components/button';
+import FernButton from '../components/fernbutton';
 import API from '../api';
 
 export interface LoginProps {
@@ -69,7 +69,7 @@ export default class Login extends Component<LoginProps, LoginState> {
 				<TextInput style={Styles.textInput} onChangeText={text => this.emailValue = text} autoCapitalize="none" returnKeyType="next" keyboardType="email-address" onSubmitEditing={() => this.password.focus()}/>
 				<Text>{Localization.password}</Text>
 				<TextInput ref={ref => this.password = ref} style={Styles.textInput} onChangeText={text => this.passwordValue = text} autoCapitalize="none" secureTextEntry={true} returnKeyType="done" onSubmitEditing={this.attach(this.login)}/>
-				<Button style={Styles.loginButton} textStyle={Styles.loginButtonText} underlayColor="#a6d5ab" activeOpacity={1} onClick={this.attach(this.login)}>{Localization.login}</Button>
+				<FernButton style={Styles.loginButton} onClick={this.attach(this.login)}>{Localization.login}</FernButton>
 			</View>
 		);
 	}
