@@ -5,10 +5,10 @@ import * as Styles from './styles';
 import Tabs from './components/tabs';
 import Login from './pages/login';
 import Lend from './pages/lend';
+import Add from './pages/add';
 
 export interface RyeState {
-	tab?: 'lend' | 'borrow' | 'settings';
-	login?: boolean;
+	page?: 'login' | 'main' | 'add';
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -19,35 +19,37 @@ export class Rye extends Component<{}, RyeState> {
 		super();
 		
 		this.state = {
-			tab: 'lend',
-			login: true
+			page: 'login'
 		};
 	}
 	
 	async onLogin(token: string) {
 		this.token = token;
 		await this.update({
-			login: false
+			page: 'main'
 		});
 	}
 	
 	render() {
-		return (
-			this.state.login ? <Login onLogin={this.attach(this.onLogin)}/> :
-			<Tabs tabs={[
-				{
-					name: Localization.lend,
-					content: <Lend/>
-				},
-				{
-					name: Localization.borrow,
-					content: <View/>
-				},
-				{
-					name: Localization.settings,
-					content: <View/>
-				}
-			]}/>
-		);
+		return {
+			login: <Login onLogin={this.attach(this.onLogin)}/>,
+			main: (
+				<Tabs tabs={[
+					{
+						name: Localization.lend,
+						content: <Lend onAdd={() => this.catch(this.update({page: 'add'}))}/>
+					},
+					{
+						name: Localization.borrow,
+						content: <View/>
+					},
+					{
+						name: Localization.settings,
+						content: <View/>
+					}
+				]}/>
+			),
+			add: <Add/>
+		}[this.state.page];
 	}
 }

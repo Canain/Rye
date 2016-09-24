@@ -5,21 +5,23 @@ import * as numeral from 'numeral';
 import Localization from '../localization';
 import FernButton from '../components/fernbutton';
 
+export interface LendProps {
+	onAdd: () => void;
+}
+
 export interface LendState {
 	original?: number;
 	current?: number;
-	view?: 'overview' | 'more';
 }
 
-export default class Lend extends Component<{}, LendState> {
+export default class Lend extends Component<LendProps, LendState> {
 	
 	constructor() {
 		super();
 		
 		this.state = {
 			original: 1000,
-			current: 1010.14,
-			view: 'overview'
+			current: 1010.14
 		};
 	}
 	
@@ -28,20 +30,15 @@ export default class Lend extends Component<{}, LendState> {
 	}
 	
 	render() {
-		return {
-			overview: (
-				<View style={Styles.lend}>
-					<View style={Styles.lendTop}>
-						<Text style={Styles.lendExplain}>{Localization.lendExplain}</Text>
-						<Text style={Styles.lendCurrent}>{numeral(this.state.current).format('$0,0.00')}</Text>
-						<Text style={this.diff < 0 ? Styles.lendDiffNegative : Styles.lendDiffPositive}>{`${this.diff > 0 ? '+' : ''}${numeral(this.diff).format('$0,0.00')}`}</Text>
-					</View>
-					<FernButton style={Styles.lendButton} onClick={() => this.catch(this.update({view: 'more'}))}>{Localization.lendMore}</FernButton>
+		return (
+			<View style={Styles.lend}>
+				<View style={Styles.lendTop}>
+					<Text style={Styles.lendExplain}>{Localization.lendExplain}</Text>
+					<Text style={Styles.lendCurrent}>{numeral(this.state.current).format('$0,0.00')}</Text>
+					<Text style={this.diff < 0 ? Styles.lendDiffNegative : Styles.lendDiffPositive}>{`${this.diff > 0 ? '+' : ''}${numeral(this.diff).format('$0,0.00')}`}</Text>
 				</View>
-			),
-			more: (
-				<View/>
-			)
-		}[this.state.view];
+				<FernButton style={Styles.lendButton} onClick={this.props.onAdd}>{Localization.lendMore}</FernButton>
+			</View>
+		);
 	}
 }
