@@ -1,7 +1,12 @@
 import English from './localization/english';
 
 export interface Language {
-	hello: string;
+	lend: string;
+	borrow: string;
+	settings: string;
+	email: string;
+	password: string;
+	login: string;
 }
 
 interface Languages {
