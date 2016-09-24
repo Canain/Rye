@@ -27,6 +27,10 @@ export default class ES7Component<P, S> extends Component<P, S> {
 		};
 		return proxy;
 	}
+	
+	catch(promise: Promise<any>) {
+		return promise.catch(error => console.error(error));
+	}
 }
 
 export {
