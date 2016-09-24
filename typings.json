@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "node-fetch": "registry:dt/node-fetch#0.0.0+20160711094047",
     "react": "registry:dt/react#0.14.0+20160923124221",
     "react-native": "registry:dt/react-native#0.29.0+20160923143811"
   }

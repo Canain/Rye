@@ -12,6 +12,9 @@ export interface RyeState {
 }
 
 export class Rye extends Component<{}, RyeState> {
+	
+	token: string;
+	
 	constructor() {
 		super();
 		
@@ -21,10 +24,17 @@ export class Rye extends Component<{}, RyeState> {
 		};
 	}
 	
+	async onLogin(token: string) {
+		this.token = token;
+		await this.update({
+			login: false
+		});
+	}
+	
 	render() {
 		return (
 			this.state.login ?
-			<Login/> :
+			<Login onLogin={this.attach(this.onLogin)}/> :
 			<View style={Styles.main}>
 				<Tabs>
 					<Tab selected={this.state.tab === 'lend'} onClick={() => this.catch(this.update({tab: 'lend'}))}>{Localization.lend}</Tab>
