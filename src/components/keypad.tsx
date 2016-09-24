@@ -2,6 +2,7 @@ import Component, { React } from '../component';
 import { View, Text } from 'react-native';
 import * as Styles from '../styles';
 import Button from '../components/button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export interface KeyProps {
 	onClick?: () => void;
@@ -44,7 +45,7 @@ export default class Keypad extends Component<KeypadProps, {}> {
 				<KeyRow>
 					<Key>.</Key>
 					<Key>0</Key>
-					<Key>{'<'}</Key>
+					<Key><Icon name="backspace" size={24}/></Key>
 				</KeyRow>
 			</View>
 		);

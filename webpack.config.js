@@ -6,7 +6,7 @@ const node = {};
 ['fs', 'net', 'path'].forEach(m => node[m] = 'empty');
 
 const externals = {};
-['react', 'react-native'].forEach(m => externals[m] = `commonjs ${m}`);
+['react', 'react-native', 'react-native-vector-icons', 'react-native-vector-icons/MaterialIcons'].forEach(m => externals[m] = `commonjs ${m}`);
 fs.readdirSync('assets').forEach(a => externals[`assets/${a}`] = `commonjs ./assets/${a}`);
 
 module.exports = {

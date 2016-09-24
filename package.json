@@ -19,6 +19,7 @@
     "numeral": "^1.5.3",
     "react": "15.3.2",
     "react-native": "0.34.0",
+    "react-native-vector-icons": "^2.1.0",
     "shallowequal": "^0.2.2"
   },
   "devDependencies": {
