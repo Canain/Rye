@@ -199,3 +199,14 @@ export const settings: ViewStyle = {
 export const logout: ViewStyle = mixin(lendButton, <ViewStyle>{
 	backgroundColor: '#FF033E'
 });
+
+export const thanks: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column',
+	justifyContent: 'center',
+};
+
+export const thanksBig: TextStyle = {
+	fontSize: 48,
+	textAlign: 'center'
+};

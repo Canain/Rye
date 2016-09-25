@@ -7,8 +7,10 @@ export default <Language>{
 	email: 'Email',
 	password: 'Password',
 	login: 'Login',
-	lendExplain: 'You have lent',
+	lendExplain: 'You are lending',
 	lendMore: 'Lend More',
-	add: 'Enter lend amount',
-	logout: 'Logout'
+	add: 'Enter amount to lend',
+	logout: 'Logout',
+	thankyou: 'Thank You',
+	home: 'Home'
 };

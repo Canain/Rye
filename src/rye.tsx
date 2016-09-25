@@ -7,9 +7,12 @@ import Login from './pages/login';
 import Lend from './pages/lend';
 import Add from './pages/add';
 import Settings from './pages/settings';
+import Thanks from './pages/thanks';
+
+type Page = 'login' | 'main' | 'add' | 'thanks';
 
 export interface RyeState {
-	page?: 'login' | 'main' | 'add';
+	page?: Page;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -39,6 +42,10 @@ export class Rye extends Component<{}, RyeState> {
 		});
 	}
 	
+	switch(page: Page) {
+		this.catch(this.update({page: page}));
+	}
+	
 	render() {
 		return {
 			login: <Login onLogin={this.attach(this.onLogin)}/>,
@@ -46,7 +53,7 @@ export class Rye extends Component<{}, RyeState> {
 				<Tabs tabs={[
 					{
 						name: Localization.lend,
-						content: <Lend onAdd={() => this.catch(this.update({page: 'add'}))}/>
+						content: <Lend onAdd={() => this.switch('add')}/>
 					},
 					{
 						name: Localization.borrow,
@@ -58,7 +65,8 @@ export class Rye extends Component<{}, RyeState> {
 					}
 				]}/>
 			),
-			add: <Add onBack={() => this.catch(this.update({page: 'main'}))}/>
+			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
+			thanks: <Thanks onHome={() => this.switch('main')}/>
 		}[this.state.page];
 	}
 }

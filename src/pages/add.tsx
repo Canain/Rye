@@ -8,6 +8,7 @@ import Keypad from '../components/keypad';
 
 export interface AddProps {
 	onBack: () => void;
+	onDone: () => void;
 }
 
 export interface AddState {
@@ -25,7 +26,7 @@ export default class Add extends Component<AddProps, AddState> {
 	
 	render() {
 		return (
-			<Modal onBack={this.props.onBack} title={Localization.add} onDone={() => {}}>
+			<Modal onBack={this.props.onBack} title={Localization.add} onDone={this.props.onDone}>
 				<View style={Styles.add}>
 					<View style={Styles.addTop}>
 						<Text style={Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>

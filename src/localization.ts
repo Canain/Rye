@@ -11,6 +11,8 @@ export interface Language {
 	lendMore: string;
 	add: string;
 	logout: string;
+	thankyou: string;
+	home: string;
 }
 
 interface Languages {
