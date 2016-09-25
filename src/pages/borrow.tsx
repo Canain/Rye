@@ -33,11 +33,11 @@ export default class Borrow extends Component<BorrowProps, BorrowState> {
 				<View style={Styles.borrowTop}>
 					<Text style={Styles.borrowExplain}>{Localization.borrowExplain(this.state.location)}</Text>
 					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.state.rate + this.state.fee).format('0.00%'), Localization.total, Localization.perday)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate).format('0.00%'), Localization.rate, Localization.perday)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee).format('0.00%'), Localization.fee, Localization.perday)}</Text>
+					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate).format('0.000%'), Localization.rate, Localization.perday)}</Text>
+					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee).format('0.000%'), Localization.fee, Localization.perday)}</Text>
 					<Text style={Styles.borrowTotal}>{Localization.per(numeral((this.state.rate + this.state.fee) * 30).format('0.00%'), Localization.total, Localization.permonth)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate * 30).format('0.00%'), Localization.rate, Localization.permonth)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee * 30).format('0.00%'), Localization.fee, Localization.permonth)}</Text>
+					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate * 30).format('0.000%'), Localization.rate, Localization.permonth)}</Text>
+					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee * 30).format('0.000%'), Localization.fee, Localization.permonth)}</Text>
 				</View>
 				<FernButton style={Styles.lendButton}>{Localization.loan}</FernButton>
 			</View>
