@@ -258,3 +258,9 @@ export const loanAmountRed: TextStyle = {
 	fontSize: 48,
 	color: 'red'
 };
+
+export const duration: ViewStyle = {
+	flex: 1,
+	justifyContent: 'center',
+	alignItems: 'center'
+};

@@ -23,5 +23,9 @@ export default <Language>{
 	borrowExplain: 'Current interest rate for',
 	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent}${what === 'total interest' ? ` per ${per}` : ` ${what} per ${per}`}`,
 	loanTitle: 'Enter amount to borrow',
-	loanLimit: limit => `Your current loan limit is ${limit}`
+	loanLimit: limit => `Your current loan limit is ${limit}`,
+	durationLimit: max => `You can loan up to ${max} days`,
+	days: days => `${days} day${days === 1 ? '' : 's'}`,
+	durationTitle: 'Enter days to borrow for',
+	due: date => `Due ${date}`
 };

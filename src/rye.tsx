@@ -10,8 +10,9 @@ import Settings from './pages/settings';
 import Thanks from './pages/thanks';
 import Borrow from './pages/borrow';
 import Loan from './pages/loan';
+import Duration from './pages/duration';
 
-type Page = 'login' | 'main' | 'add' | 'thanks' | 'loan';
+type Page = 'login' | 'main' | 'add' | 'thanks' | 'loan' | 'duration';
 
 export interface RyeState {
 	page?: Page;
@@ -75,7 +76,8 @@ export class Rye extends Component<{}, RyeState> {
 			),
 			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
 			thanks: <Thanks onHome={() => this.switch('main')}/>,
-			loan: <Loan total={this.state.fee + this.state.rate} onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>
+			loan: <Loan total={this.state.fee + this.state.rate} onBack={() => this.switch('main')} onDone={() => this.switch('duration')}/>,
+			duration: <Duration onBack={() => this.switch('loan')} onDone={() => this.switch('thanks')}/>
 		}[this.state.page];
 	}
 }

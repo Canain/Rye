@@ -10,6 +10,7 @@ export interface ModalProps {
 	onDone: () => void;
 	title: string;
 	disabled?: boolean;
+	hidden?: boolean;
 }
 
 export default class Modal extends Component<ModalProps, {}> {
@@ -20,7 +21,7 @@ export default class Modal extends Component<ModalProps, {}> {
 					<View style={Styles.modalTopContent}>
 						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onBack}><Icon name="arrow-back" size={20}/></Button>
 						<Text style={Styles.modalTitle}>{this.props.title}</Text>
-						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onDone} disabled={this.props.disabled}><Icon name="done" size={20} color={this.props.disabled ? '#ccc' : 'green'}/></Button>
+						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onDone} disabled={this.props.disabled}>{this.props.hidden ? null : <Icon name="done" size={20} color={this.props.disabled ? '#ccc' : 'green'}/>}</Button>
 					</View>
 				</View>
 				<View style={Styles.content}>{this.props.children}</View>

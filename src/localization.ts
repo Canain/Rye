@@ -24,6 +24,10 @@ export interface Language {
 	location: (location: string[]) => string;
 	loanTitle: string;
 	loanLimit: (limit: string) => string;
+	durationLimit: (max: number) => string;
+	days: (days: number) => string;
+	durationTitle: string;
+	due: (date: string) => string;
 }
 
 interface Languages {
