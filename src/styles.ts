@@ -51,18 +51,22 @@ export const login: ViewStyle = {
 	marginBottom: 64
 };
 
-export const textInput: TextStyle = {
-	height: 32,
+export const textInput: ViewStyle = {
+	height: 48,
 	marginLeft: 32,
 	marginRight: 32,
-	borderWidth: 1,
+	marginBottom: 24,
+	width: 256,
 	borderColor: 'black',
-	margin: 10,
-	textAlign: 'center'
+	borderBottomWidth: 1
+};
+
+export const textInputText: TextStyle = {
+	textAlign: 'center',
+	flex: 1
 };
 
 export const loginButton: ViewStyle = {
-	margin: 10,
 	width: 256,
 	height: 48
 };
@@ -186,3 +190,12 @@ export const keyRow: ViewStyle = {
 	flex: 1/4,
 	flexDirection: 'row'
 };
+
+export const settings: ViewStyle = {
+	flex: 1,
+	flexDirection: 'column'
+};
+
+export const logout: ViewStyle = mixin(lendButton, <ViewStyle>{
+	backgroundColor: '#FF033E'
+});

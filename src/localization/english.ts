@@ -10,4 +10,5 @@ export default <Language>{
 	lendExplain: 'You have lent',
 	lendMore: 'Lend More',
 	add: 'Enter lend amount',
+	logout: 'Logout'
 };

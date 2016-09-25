@@ -66,9 +66,13 @@ export default class Login extends Component<LoginProps, LoginState> {
 			this.state.loading ? null :
 			<View style={Styles.login}>
 				<Text>{Localization.email}</Text>
-				<TextInput style={Styles.textInput} onChangeText={text => this.emailValue = text} autoCapitalize="none" returnKeyType="next" keyboardType="email-address" onSubmitEditing={() => this.password.focus()}/>
+				<View style={Styles.textInput}>
+					<TextInput style={Styles.textInputText} onChangeText={text => this.emailValue = text} autoCapitalize="none" autoCorrect={false} returnKeyType="next" keyboardType="email-address" onSubmitEditing={() => this.password.focus()}/>
+				</View>
 				<Text>{Localization.password}</Text>
-				<TextInput ref={ref => this.password = ref} style={Styles.textInput} onChangeText={text => this.passwordValue = text} autoCapitalize="none" secureTextEntry={true} returnKeyType="done" onSubmitEditing={this.attach(this.login)}/>
+				<View style={Styles.textInput}>
+					<TextInput ref={ref => this.password = ref} style={Styles.textInputText} onChangeText={text => this.passwordValue = text} autoCapitalize="none" autoCorrect={false} secureTextEntry={true} returnKeyType="done" onSubmitEditing={this.attach(this.login)}/>
+				</View>
 				<FernButton style={Styles.loginButton} onClick={this.attach(this.login)}>{Localization.login}</FernButton>
 			</View>
 		);

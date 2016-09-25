@@ -19,7 +19,7 @@ export default class Modal extends Component<ModalProps, {}> {
 					<View style={Styles.modalTopContent}>
 						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onBack}><Icon name="arrow-back" size={20}/></Button>
 						<Text style={Styles.modalTitle}>{this.props.title}</Text>
-						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onDone}><Icon name="done" size={20}/></Button>
+						<Button style={Styles.modalTopAction} textStyle={Styles.modalTopActionText} onClick={this.props.onDone}><Icon name="done" size={20} color="green"/></Button>
 					</View>
 				</View>
 				<View style={Styles.content}>{this.props.children}</View>

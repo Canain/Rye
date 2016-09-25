@@ -10,6 +10,7 @@ export interface Language {
 	lendExplain: string;
 	lendMore: string;
 	add: string;
+	logout: string;
 }
 
 interface Languages {
