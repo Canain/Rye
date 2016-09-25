@@ -12,6 +12,7 @@ import Borrow from './pages/borrow';
 import Loan from './pages/loan';
 import Duration from './pages/duration';
 import Payback from './pages/payback';
+import * as moment from 'moment';
 
 type Page = 'login' | 'main' | 'add' | 'thanks' | 'loan' | 'duration';
 
@@ -23,6 +24,7 @@ export interface RyeState {
 	loan?: number;
 	days?: number;
 	payback?: boolean;
+	due?: number;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -38,7 +40,8 @@ export class Rye extends Component<{}, RyeState> {
 			fee: 0.00002,
 			tab: 0,
 			loan: 0,
-			days: 0
+			days: 0,
+			due: 0
 		};
 	}
 	
@@ -64,7 +67,8 @@ export class Rye extends Component<{}, RyeState> {
 	async loan() {
 		await this.update({
 			page: 'main',
-			payback: true
+			payback: true,
+			due: moment().add(this.state.days, 'days').toDate().getTime()
 		});
 	}
 	
@@ -79,7 +83,7 @@ export class Rye extends Component<{}, RyeState> {
 					},
 					{
 						name: this.state.payback ? Localization.payback : Localization.borrow,
-						content: this.state.payback ? <Payback rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/> : <Borrow rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/>
+						content: this.state.payback ? <Payback due={this.state.due} loan={this.state.loan} total={this.state.rate + this.state.fee} onPay={() => {}}/> : <Borrow rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/>
 					},
 					{
 						name: Localization.settings,

@@ -4,43 +4,31 @@ import * as Styles from '../styles';
 import * as numeral from 'numeral';
 import Localization from '../localization';
 import FernButton from '../components/fernbutton';
+import * as moment from 'moment';
 
-export interface BorrowProps {
-	rate: number;
-	fee: number;
-	onLoan: () => void;
+export interface PaybackProps {
+	loan: number;
+	total: number;
+	due: number;
+	onPay: () => void;
 }
 
-export interface BorrowState {
-	location?: string[];
-}
-
-export default class Borrow extends Component<BorrowProps, BorrowState> {
+export interface PaybackState {
 	
-	constructor() {
-		super();
-		
-		this.state = {
-			location: ['United States', 'Georgia', 'Atlanta']
-		};
-	}
+}
+
+export default class Borrow extends Component<PaybackProps, PaybackState> {
 	
 	render() {
 		return (
 			<View style={Styles.borrow}>
-				<View style={Styles.borrowTop}>
-					<Text style={Styles.borrowExplain}>{Localization.borrowExplain}</Text>
-					<Text style={Styles.borrowExplain}>{Localization.location(this.state.location)}</Text>
-				</View>
 				<View style={Styles.borrowContent}>
-					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.props.rate + this.props.fee).format('0.000%'), Localization.total, Localization.day)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.props.rate).format('0.000%'), Localization.rate, Localization.day)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.props.fee).format('0.000%'), Localization.fee, Localization.day)}</Text>
-					<Text style={Styles.borrowTotal}>{Localization.per(numeral((this.props.rate + this.props.fee) * 30).format('0.00%'), Localization.total, Localization.month)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.props.rate * 30).format('0.000%'), Localization.rate, Localization.month)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.props.fee * 30).format('0.000%'), Localization.fee, Localization.month)}</Text>
+					<Text>You owe</Text>
+					<Text style={Styles.lendCurrent}>{numeral(this.props.loan).format('$0,0.00')}</Text>
+					<Text>{`+${numeral(this.props.total * this.props.loan).format('$0,0.00')} per day`}</Text>
+					<Text>{`Loan Ends ${moment(this.props.due).format('ll')}`}</Text>
 				</View>
-				<FernButton style={Styles.lendButton} onClick={this.props.onLoan}>{Localization.loan}</FernButton>
+				<FernButton style={Styles.lendButton} onClick={this.props.onPay}>Pay</FernButton>
 			</View>
 		);
 	}

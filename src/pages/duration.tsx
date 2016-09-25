@@ -36,7 +36,7 @@ export default class Duration extends Component<DurationProps, DurationState> {
 				<View style={Styles.add}>
 					<View style={Styles.addTop}>
 						<Text style={this.props.days > this.state.max ? Styles.loanAmountRed : Styles.addAmount}>{Localization.days(this.props.days)}</Text>
-						<Text style={Styles.loanDay}>{Localization.due(moment().add(this.props.days, 'days').calendar())}</Text>
+						<Text style={Styles.loanDay}>{Localization.due(moment().add(this.props.days, 'days').format('ll'))}</Text>
 						<Text style={Styles.loanDay}>{Localization.durationTotal(numeral(this.props.loan * this.props.total * this.props.days).format('$0,0.00'))}</Text>
 					</View>
 					<View style={Styles.addBot}><Keypad onChange={this.props.onChange}/></View>
