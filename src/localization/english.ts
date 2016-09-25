@@ -14,12 +14,12 @@ export default <Language>{
 	thankyou: 'Thank You',
 	home: 'Home',
 	loan: 'Take a Loan',
-	perday: 'per day',
-	permonth: 'per month',
+	perday: 'day',
+	permonth: 'month',
 	total: 'total interest',
 	rate: 'interest rate',
 	fee: 'fee',
 	location: location => `${location[2] ? `${location[2]}, ` : ''}${location[1] ? `${location[1]}, ` : ''}${location[0]}`,
 	borrowExplain: 'Current interest rate for',
-	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent} ${what} ${per}`
+	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent}${what === 'total interest' ? ` per ${per}` : ` ${what} per ${per}`}`
 };

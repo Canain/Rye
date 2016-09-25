@@ -58,7 +58,7 @@ export const textInput: ViewStyle = {
 	marginBottom: 24,
 	width: 256,
 	borderColor: 'black',
-	borderBottomWidth: 1
+	borderBottomWidth: Platform.OS === 'ios' ? 1 : 0
 };
 
 export const textInputText: TextStyle = {
@@ -213,15 +213,14 @@ export const thanksBig: TextStyle = {
 
 export const borrow: ViewStyle = mixin(lend);
 
-export const borrowTop: ViewStyle = mixin(lendTop);
+export const borrowContent: ViewStyle = mixin(lendTop);
 
 export const borrowExplain: TextStyle = {
-	marginBottom: 8
+	marginBottom: 4
 };
 
 export const borrowTotal: TextStyle = {
-	fontSize: 26,
-	marginTop: 24
+	fontSize: 38
 };
 
 export const borrowRate: TextStyle = {
@@ -229,4 +228,11 @@ export const borrowRate: TextStyle = {
 };
 
 export const borrowFee: TextStyle = {
+	marginBottom: 24
+};
+
+export const borrowTop: ViewStyle = {
+	flexDirection: 'column',
+	alignItems: 'center',
+	marginTop: 16
 };
