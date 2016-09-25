@@ -11,6 +11,7 @@ import Thanks from './pages/thanks';
 import Borrow from './pages/borrow';
 import Loan from './pages/loan';
 import Duration from './pages/duration';
+import Payback from './pages/payback';
 
 type Page = 'login' | 'main' | 'add' | 'thanks' | 'loan' | 'duration';
 
@@ -21,6 +22,7 @@ export interface RyeState {
 	tab?: number;
 	loan?: number;
 	days?: number;
+	payback?: boolean;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -59,6 +61,13 @@ export class Rye extends Component<{}, RyeState> {
 		this.catch(this.update({page: page}));
 	}
 	
+	async loan() {
+		await this.update({
+			page: 'main',
+			payback: true
+		});
+	}
+	
 	render() {
 		return {
 			login: <Login onLogin={this.attach(this.onLogin)}/>,
@@ -69,8 +78,8 @@ export class Rye extends Component<{}, RyeState> {
 						content: <Lend onAdd={() => this.switch('add')}/>
 					},
 					{
-						name: Localization.borrow,
-						content: <Borrow rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/>
+						name: this.state.payback ? Localization.payback : Localization.borrow,
+						content: this.state.payback ? <Payback rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/> : <Borrow rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/>
 					},
 					{
 						name: Localization.settings,
@@ -81,7 +90,7 @@ export class Rye extends Component<{}, RyeState> {
 			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
 			thanks: <Thanks onHome={() => this.switch('main')}/>,
 			loan: <Loan total={this.state.fee + this.state.rate} loan={this.state.loan} onChange={loan => this.catch(this.update({loan: loan}))} onBack={() => this.switch('main')} onDone={() => this.switch('duration')}/>,
-			duration: <Duration days={this.state.days} onChange={days => this.catch(this.update({days: days}))} loan={this.state.loan} total={this.state.rate + this.state.fee} onBack={() => this.switch('loan')} onDone={() => this.switch('thanks')}/>
+			duration: <Duration days={this.state.days} onChange={days => this.catch(this.update({days: days}))} loan={this.state.loan} total={this.state.rate + this.state.fee} onBack={() => this.switch('loan')} onDone={this.attach(this.loan)}/>
 		}[this.state.page];
 	}
 }

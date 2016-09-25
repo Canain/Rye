@@ -29,6 +29,7 @@ export interface Language {
 	durationTitle: (loan: string) => string;
 	due: (date: string) => string;
 	durationTotal: (amount: string) => string;
+	payback: string;
 }
 
 interface Languages {

@@ -28,5 +28,6 @@ export default <Language>{
 	days: days => `${days} day${days === 1 ? '' : 's'}`,
 	durationTitle: loan => `Enter days to borrow ${loan}`,
 	due: date => `Due ${date}`,
-	durationTotal: amount => `${amount} total interest`
+	durationTotal: amount => `${amount} total interest`,
+	payback: 'Payback'
 };
