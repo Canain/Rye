@@ -244,3 +244,13 @@ export const loanDay: TextStyle = {
 export const loanMonth: TextStyle = {
 	
 };
+
+export const loanLimit: TextStyle = {
+	textAlign: 'center',
+	marginTop: 16
+};
+
+export const loanAmountRed: TextStyle = {
+	fontSize: 48,
+	color: 'red'
+};

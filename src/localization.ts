@@ -15,14 +15,15 @@ export interface Language {
 	home: string;
 	loan: string;
 	borrowExplain: string;
-	perday: string;
-	permonth: string;
+	day: string;
+	month: string;
 	total: string;
 	rate: string;
 	fee: string;
 	per: (percent: string, what: string, per: string) => string;
 	location: (location: string[]) => string;
 	loanTitle: string;
+	loanLimit: (limit: string) => string;
 }
 
 interface Languages {
