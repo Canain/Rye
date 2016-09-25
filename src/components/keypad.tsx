@@ -38,8 +38,12 @@ export default class Keypad extends Component<KeypadProps, KeypadState> {
 	}
 	
 	async onClickNumber(value: number) {
+		const text = this.state.amount.toString();
+		if (text.length > 9) {
+			return;
+		}
 		await this.update({
-			amount: parseInt(this.state.amount.toString() + value)
+			amount: parseInt(text + value)
 		});
 		this.props.onChange(this.state.amount);
 	}
