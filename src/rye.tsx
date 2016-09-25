@@ -8,6 +8,7 @@ import Lend from './pages/lend';
 import Add from './pages/add';
 import Settings from './pages/settings';
 import Thanks from './pages/thanks';
+import Borrow from './pages/borrow';
 
 type Page = 'login' | 'main' | 'add' | 'thanks';
 
@@ -57,7 +58,7 @@ export class Rye extends Component<{}, RyeState> {
 					},
 					{
 						name: Localization.borrow,
-						content: <View/>
+						content: <Borrow/>
 					},
 					{
 						name: Localization.settings,

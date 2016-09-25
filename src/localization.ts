@@ -13,6 +13,14 @@ export interface Language {
 	logout: string;
 	thankyou: string;
 	home: string;
+	loan: string;
+	borrowExplain: (location: string[]) => string;
+	perday: string;
+	permonth: string;
+	total: string;
+	rate: string;
+	fee: string;
+	per: (percent: string, what: string, per: string) => string;
 }
 
 interface Languages {

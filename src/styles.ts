@@ -210,3 +210,23 @@ export const thanksBig: TextStyle = {
 	fontSize: 48,
 	textAlign: 'center'
 };
+
+export const borrow: ViewStyle = mixin(lend);
+
+export const borrowTop: ViewStyle = mixin(lendTop);
+
+export const borrowExplain: TextStyle = {
+	marginBottom: 24
+};
+
+export const borrowTotal: TextStyle = {
+	fontSize: 26
+};
+
+export const borrowRate: TextStyle = {
+	
+};
+
+export const borrowFee: TextStyle = {
+	marginBottom: 24
+};
