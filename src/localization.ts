@@ -22,6 +22,7 @@ export interface Language {
 	fee: string;
 	per: (percent: string, what: string, per: string) => string;
 	location: (location: string[]) => string;
+	loanTitle: string;
 }
 
 interface Languages {

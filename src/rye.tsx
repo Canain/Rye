@@ -9,11 +9,15 @@ import Add from './pages/add';
 import Settings from './pages/settings';
 import Thanks from './pages/thanks';
 import Borrow from './pages/borrow';
+import Loan from './pages/loan';
 
-type Page = 'login' | 'main' | 'add' | 'thanks';
+type Page = 'login' | 'main' | 'add' | 'thanks' | 'loan';
 
 export interface RyeState {
 	page?: Page;
+	rate?: number;
+	fee?: number;
+	tab?: number;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -24,7 +28,10 @@ export class Rye extends Component<{}, RyeState> {
 		super();
 		
 		this.state = {
-			page: 'login'
+			page: 'login',
+			rate: 0.0004,
+			fee: 0.00002,
+			tab: 0
 		};
 	}
 	
@@ -51,14 +58,14 @@ export class Rye extends Component<{}, RyeState> {
 		return {
 			login: <Login onLogin={this.attach(this.onLogin)}/>,
 			main: (
-				<Tabs tabs={[
+				<Tabs selected={this.state.tab} onSelect={selected => this.catch(this.update({tab: selected}))} tabs={[
 					{
 						name: Localization.lend,
 						content: <Lend onAdd={() => this.switch('add')}/>
 					},
 					{
 						name: Localization.borrow,
-						content: <Borrow/>
+						content: <Borrow rate={this.state.rate} fee={this.state.fee} onLoan={() => this.switch('loan')}/>
 					},
 					{
 						name: Localization.settings,
@@ -67,7 +74,8 @@ export class Rye extends Component<{}, RyeState> {
 				]}/>
 			),
 			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
-			thanks: <Thanks onHome={() => this.switch('main')}/>
+			thanks: <Thanks onHome={() => this.switch('main')}/>,
+			loan: <Loan total={this.state.fee + this.state.rate} onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>
 		}[this.state.page];
 	}
 }

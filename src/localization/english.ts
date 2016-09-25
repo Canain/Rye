@@ -21,5 +21,6 @@ export default <Language>{
 	fee: 'fee',
 	location: location => `${location[2] ? `${location[2]}, ` : ''}${location[1] ? `${location[1]}, ` : ''}${location[0]}`,
 	borrowExplain: 'Current interest rate for',
-	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent}${what === 'total interest' ? ` per ${per}` : ` ${what} per ${per}`}`
+	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent}${what === 'total interest' ? ` per ${per}` : ` ${what} per ${per}`}`,
+	loanTitle: 'Enter amount to borrow'
 };

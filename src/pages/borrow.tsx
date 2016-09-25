@@ -6,13 +6,13 @@ import Localization from '../localization';
 import FernButton from '../components/fernbutton';
 
 export interface BorrowProps {
-	
+	rate: number;
+	fee: number;
+	onLoan: () => void;
 }
 
 export interface BorrowState {
 	location?: string[];
-	rate?: number;
-	fee?: number;
 }
 
 export default class Borrow extends Component<BorrowProps, BorrowState> {
@@ -21,9 +21,7 @@ export default class Borrow extends Component<BorrowProps, BorrowState> {
 		super();
 		
 		this.state = {
-			location: ['United States', 'Georgia', 'Atlanta'],
-			rate: 0.0004,
-			fee: 0.00002
+			location: ['United States', 'Georgia', 'Atlanta']
 		};
 	}
 	
@@ -35,14 +33,14 @@ export default class Borrow extends Component<BorrowProps, BorrowState> {
 					<Text style={Styles.borrowExplain}>{Localization.location(this.state.location)}</Text>
 				</View>
 				<View style={Styles.borrowContent}>
-					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.state.rate + this.state.fee).format('0.000%'), Localization.total, Localization.perday)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate).format('0.000%'), Localization.rate, Localization.perday)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee).format('0.000%'), Localization.fee, Localization.perday)}</Text>
-					<Text style={Styles.borrowTotal}>{Localization.per(numeral((this.state.rate + this.state.fee) * 30).format('0.00%'), Localization.total, Localization.permonth)}</Text>
-					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate * 30).format('0.000%'), Localization.rate, Localization.permonth)}</Text>
-					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee * 30).format('0.000%'), Localization.fee, Localization.permonth)}</Text>
+					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.props.rate + this.props.fee).format('0.000%'), Localization.total, Localization.perday)}</Text>
+					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.props.rate).format('0.000%'), Localization.rate, Localization.perday)}</Text>
+					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.props.fee).format('0.000%'), Localization.fee, Localization.perday)}</Text>
+					<Text style={Styles.borrowTotal}>{Localization.per(numeral((this.props.rate + this.props.fee) * 30).format('0.00%'), Localization.total, Localization.permonth)}</Text>
+					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.props.rate * 30).format('0.000%'), Localization.rate, Localization.permonth)}</Text>
+					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.props.fee * 30).format('0.000%'), Localization.fee, Localization.permonth)}</Text>
 				</View>
-				<FernButton style={Styles.lendButton}>{Localization.loan}</FernButton>
+				<FernButton style={Styles.lendButton} onClick={this.props.onLoan}>{Localization.loan}</FernButton>
 			</View>
 		);
 	}
