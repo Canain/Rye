@@ -250,6 +250,10 @@ export const loanLimit: TextStyle = {
 	marginTop: 16
 };
 
+export const loanLimitRed: TextStyle = mixin(loanLimit, <TextStyle>{
+	color: 'red'
+});
+
 export const loanAmountRed: TextStyle = {
 	fontSize: 48,
 	color: 'red'

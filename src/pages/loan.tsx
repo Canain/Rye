@@ -29,15 +29,15 @@ export default class Loan extends Component<LoanProps, LoanState> {
 	
 	render() {
 		return (
-			<Modal onBack={this.props.onBack} title={Localization.loanTitle} onDone={this.props.onDone}>
-				<Text style={Styles.loanLimit}>{Localization.loanLimit(numeral(this.state.limit).format('$0,0.00'))}</Text>
+			<Modal onBack={this.props.onBack} title={Localization.loanTitle} onDone={this.state.amount > this.state.limit ? (() => {}) : this.props.onDone}>
+				<Text style={this.state.amount > this.state.limit ? Styles.loanLimitRed : Styles.loanLimit}>{Localization.loanLimit(numeral(this.state.limit).format('$0,0.00'))}</Text>
 				<View style={Styles.add}>
 					<View style={Styles.addTop}>
 						<Text style={this.state.amount > this.state.limit ? Styles.loanAmountRed : Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>
 						<Text style={Styles.loanDay}>{Localization.per(numeral(this.state.amount * this.props.total).format('$0,0.00'), Localization.total, Localization.day)}</Text>
 						<Text style={Styles.loanMonth}>{Localization.per(numeral(this.state.amount * this.props.total * 30).format('$0,0.00'), Localization.total, Localization.month)}</Text>
 					</View>
-					<View style={Styles.addBot}><Keypad onChange={amount => this.state.amount > this.state.limit ? null : this.catch(this.update({amount: amount / 100}))}/></View>
+					<View style={Styles.addBot}><Keypad onChange={amount => this.catch(this.update({amount: amount / 100}))}/></View>
 				</View>
 			</Modal>
 		);
