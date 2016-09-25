@@ -26,8 +26,9 @@ export interface Language {
 	loanLimit: (limit: string) => string;
 	durationLimit: (max: number) => string;
 	days: (days: number) => string;
-	durationTitle: string;
+	durationTitle: (loan: string) => string;
 	due: (date: string) => string;
+	durationTotal: (amount: string) => string;
 }
 
 interface Languages {

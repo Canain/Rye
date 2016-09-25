@@ -19,6 +19,7 @@ export interface RyeState {
 	rate?: number;
 	fee?: number;
 	tab?: number;
+	loan?: number;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -32,7 +33,8 @@ export class Rye extends Component<{}, RyeState> {
 			page: 'login',
 			rate: 0.0004,
 			fee: 0.00002,
-			tab: 0
+			tab: 0,
+			loan: 0
 		};
 	}
 	
@@ -76,8 +78,8 @@ export class Rye extends Component<{}, RyeState> {
 			),
 			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
 			thanks: <Thanks onHome={() => this.switch('main')}/>,
-			loan: <Loan total={this.state.fee + this.state.rate} onBack={() => this.switch('main')} onDone={() => this.switch('duration')}/>,
-			duration: <Duration onBack={() => this.switch('loan')} onDone={() => this.switch('thanks')}/>
+			loan: <Loan total={this.state.fee + this.state.rate} loan={this.state.loan} onChange={loan => this.catch(this.update({loan: loan}))} onBack={() => this.switch('main')} onDone={() => this.switch('duration')}/>,
+			duration: <Duration loan={this.state.loan} total={this.state.rate + this.state.fee} onBack={() => this.switch('loan')} onDone={() => this.switch('thanks')}/>
 		}[this.state.page];
 	}
 }

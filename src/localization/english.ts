@@ -26,6 +26,7 @@ export default <Language>{
 	loanLimit: limit => `Your current loan limit is ${limit}`,
 	durationLimit: max => `You can loan up to ${max} days`,
 	days: days => `${days} day${days === 1 ? '' : 's'}`,
-	durationTitle: 'Enter days to borrow for',
-	due: date => `Due ${date}`
+	durationTitle: loan => `Enter days to borrow ${loan}`,
+	due: date => `Due ${date}`,
+	durationTotal: amount => `${amount} total interest`
 };
