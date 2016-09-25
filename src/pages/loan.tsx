@@ -29,7 +29,7 @@ export default class Loan extends Component<LoanProps, LoanState> {
 	
 	render() {
 		return (
-			<Modal onBack={this.props.onBack} title={Localization.loanTitle} onDone={this.state.amount > this.state.limit ? (() => {}) : this.props.onDone}>
+			<Modal onBack={this.props.onBack} title={Localization.loanTitle} onDone={this.props.onDone} disabled={this.state.amount > this.state.limit}>
 				<Text style={this.state.amount > this.state.limit ? Styles.loanLimitRed : Styles.loanLimit}>{Localization.loanLimit(numeral(this.state.limit).format('$0,0.00'))}</Text>
 				<View style={Styles.add}>
 					<View style={Styles.addTop}>
