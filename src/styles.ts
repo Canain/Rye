@@ -236,3 +236,11 @@ export const borrowTop: ViewStyle = {
 	alignItems: 'center',
 	marginTop: 16
 };
+
+export const loanDay: TextStyle = {
+	
+};
+
+export const loanMonth: TextStyle = {
+	
+};

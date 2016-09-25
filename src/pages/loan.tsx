@@ -31,6 +31,8 @@ export default class Loan extends Component<LoanProps, LoanState> {
 				<View style={Styles.add}>
 					<View style={Styles.addTop}>
 						<Text style={Styles.addAmount}>{numeral(this.state.amount).format('$0,0.00')}</Text>
+						<Text style={Styles.loanDay}>{Localization.per(numeral(this.state.amount * this.props.total).format('$0,0.00'), Localization.total, Localization.perday)}</Text>
+						<Text style={Styles.loanMonth}>{Localization.per(numeral(this.state.amount * this.props.total * 30).format('$0,0.00'), Localization.total, Localization.permonth)}</Text>
 					</View>
 					<View style={Styles.addBot}><Keypad onChange={amount => this.catch(this.update({amount: amount / 100}))}/></View>
 				</View>
