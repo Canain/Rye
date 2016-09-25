@@ -216,6 +216,7 @@ export const borrow: ViewStyle = mixin(lend);
 export const borrowTop: ViewStyle = mixin(lendTop);
 
 export const borrowExplain: TextStyle = {
+	marginBottom: 8
 };
 
 export const borrowTotal: TextStyle = {
@@ -228,5 +229,4 @@ export const borrowRate: TextStyle = {
 };
 
 export const borrowFee: TextStyle = {
-	marginBottom: 24
 };
