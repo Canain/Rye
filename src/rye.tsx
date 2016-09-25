@@ -25,6 +25,9 @@ export interface RyeState {
 	days?: number;
 	payback?: boolean;
 	due?: number;
+	lend?: number;
+	current?: number;
+	original?: number;
 }
 
 export class Rye extends Component<{}, RyeState> {
@@ -41,7 +44,10 @@ export class Rye extends Component<{}, RyeState> {
 			tab: 0,
 			loan: 0,
 			days: 0,
-			due: 0
+			due: 0,
+			lend: 0,
+			original: 1000,
+			current: 1010.14
 		};
 	}
 	
@@ -72,6 +78,15 @@ export class Rye extends Component<{}, RyeState> {
 		});
 	}
 	
+	async lend() {
+		await this.update({
+			page: 'main',
+			current: this.state.current + this.state.lend,
+			original: this.state.original + this.state.lend,
+			lend: 0
+		});
+	}
+	
 	render() {
 		return {
 			login: <Login onLogin={this.attach(this.onLogin)}/>,
@@ -79,7 +94,7 @@ export class Rye extends Component<{}, RyeState> {
 				<Tabs selected={this.state.tab} onSelect={selected => this.catch(this.update({tab: selected}))} tabs={[
 					{
 						name: Localization.lend,
-						content: <Lend onAdd={() => this.switch('add')}/>
+						content: <Lend original={this.state.original} current={this.state.current} onAdd={() => this.switch('add')}/>
 					},
 					{
 						name: this.state.payback ? Localization.payback : Localization.borrow,
@@ -91,7 +106,7 @@ export class Rye extends Component<{}, RyeState> {
 					}
 				]}/>
 			),
-			add: <Add onBack={() => this.switch('main')} onDone={() => this.switch('thanks')}/>,
+			add: <Add lend={this.state.lend} onBack={() => this.switch('main')} onDone={this.attach(this.lend)} onChange={lend => this.catch(this.update({lend: lend}))}/>,
 			thanks: <Thanks onHome={() => this.switch('main')}/>,
 			loan: <Loan total={this.state.fee + this.state.rate} loan={this.state.loan} onChange={loan => this.catch(this.update({loan: loan}))} onBack={() => this.switch('main')} onDone={() => this.switch('duration')}/>,
 			duration: <Duration days={this.state.days} onChange={days => this.catch(this.update({days: days}))} loan={this.state.loan} total={this.state.rate + this.state.fee} onBack={() => this.switch('loan')} onDone={this.attach(this.loan)}/>
