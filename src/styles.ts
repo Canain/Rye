@@ -216,11 +216,11 @@ export const borrow: ViewStyle = mixin(lend);
 export const borrowTop: ViewStyle = mixin(lendTop);
 
 export const borrowExplain: TextStyle = {
-	marginBottom: 24
 };
 
 export const borrowTotal: TextStyle = {
-	fontSize: 26
+	fontSize: 26,
+	marginTop: 24
 };
 
 export const borrowRate: TextStyle = {

@@ -19,6 +19,7 @@ export default <Language>{
 	total: 'total interest',
 	rate: 'interest rate',
 	fee: 'fee',
-	borrowExplain: location => `Current interest rate for ${location[2] ? `${location[2]}, ` : ''}${location[1] ? `${location[1]}, ` : ''}${location[0]}`,
+	location: location => `${location[2] ? `${location[2]}, ` : ''}${location[1] ? `${location[1]}, ` : ''}${location[0]}`,
+	borrowExplain: 'Current interest rate for',
 	per: (percent, what, per) => `${what === 'fee' ? '+' : ''}${percent} ${what} ${per}`
 };
