@@ -33,7 +33,7 @@ export default class Borrow extends Component<BorrowProps, BorrowState> {
 				<View style={Styles.borrowTop}>
 					<Text style={Styles.borrowExplain}>{Localization.borrowExplain}</Text>
 					<Text style={Styles.borrowExplain}>{Localization.location(this.state.location)}</Text>
-					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.state.rate + this.state.fee).format('0.00%'), Localization.total, Localization.perday)}</Text>
+					<Text style={Styles.borrowTotal}>{Localization.per(numeral(this.state.rate + this.state.fee).format('0.000%'), Localization.total, Localization.perday)}</Text>
 					<Text style={Styles.borrowRate}>{Localization.per(numeral(this.state.rate).format('0.000%'), Localization.rate, Localization.perday)}</Text>
 					<Text style={Styles.borrowFee}>{Localization.per(numeral(this.state.fee).format('0.000%'), Localization.fee, Localization.perday)}</Text>
 					<Text style={Styles.borrowTotal}>{Localization.per(numeral((this.state.rate + this.state.fee) * 30).format('0.00%'), Localization.total, Localization.permonth)}</Text>
